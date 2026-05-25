@@ -1,0 +1,9 @@
+# Never upload these
+.env
+venv/
+__pycache__/
+*.pyc
+faiss_index.bin
+chunks.pkl
+pdf_hash.txt
+*.pdf

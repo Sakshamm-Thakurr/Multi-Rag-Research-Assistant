@@ -1,0 +1,12 @@
+langchain
+langchain-google-genai
+langchain-community
+langchain-text-splitters
+google-genai
+faiss-cpu
+pdfplumber
+streamlit
+python-dotenv
+tiktoken
+groq
+numpy
