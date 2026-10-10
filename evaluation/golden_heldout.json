@@ -1,0 +1,104 @@
+{
+  "corpus": "corpus/quillbase_handbook.pdf",
+  "note": "Held-out set: written BEFORE the hybrid retriever was measured. golden.json was used to diagnose weaknesses and is a development set.",
+  "questions": [
+    {
+      "id": "h-gossip-port",
+      "question": "Which port do nodes use to exchange gossip messages?",
+      "expected_any": [
+        "7430"
+      ]
+    },
+    {
+      "id": "h-admin-public",
+      "question": "Should the administration interface be reachable from the public internet?",
+      "expected_any": [
+        "never be exposed"
+      ]
+    },
+    {
+      "id": "h-block-size",
+      "question": "What block size do the data files use?",
+      "expected_any": [
+        "16 KiB"
+      ]
+    },
+    {
+      "id": "h-compaction",
+      "question": "How many overlapping tables make background compaction start?",
+      "expected_any": [
+        "4 overlapping tables"
+      ]
+    },
+    {
+      "id": "h-lag-alert",
+      "question": "At what cross-region replication lag should operators raise an alert?",
+      "expected_any": [
+        "800 ms"
+      ]
+    },
+    {
+      "id": "h-mem-limit",
+      "question": "What is the hard upper limit for the block cache?",
+      "expected_any": [
+        "70%"
+      ]
+    },
+    {
+      "id": "h-namespaces",
+      "question": "How many namespaces can one cluster support?",
+      "expected_any": [
+        "256 namespaces"
+      ]
+    },
+    {
+      "id": "h-key-size",
+      "question": "What is the maximum size of a key?",
+      "expected_any": [
+        "1 KiB"
+      ]
+    },
+    {
+      "id": "h-role",
+      "question": "Which role is allowed to change cluster settings?",
+      "expected_any": [
+        "Only the operator role"
+      ]
+    },
+    {
+      "id": "h-sev2",
+      "question": "How quickly are Severity 2 incidents answered?",
+      "expected_any": [
+        "4 hours"
+      ]
+    },
+    {
+      "id": "h-dashboard",
+      "question": "What is the bundled monitoring dashboard called?",
+      "expected_any": [
+        "Heronwatch"
+      ]
+    },
+    {
+      "id": "h-err-token",
+      "question": "What does error code QB-2210 mean?",
+      "expected_any": [
+        "token has expired"
+      ]
+    },
+    {
+      "id": "h-err-cert",
+      "question": "What does error code QB-1013 mean?",
+      "expected_any": [
+        "certificate file is missing"
+      ]
+    },
+    {
+      "id": "h-snap-prefix",
+      "question": "What prefix do snapshot identifiers start with?",
+      "expected_any": [
+        "qb-snap-"
+      ]
+    }
+  ]
+}

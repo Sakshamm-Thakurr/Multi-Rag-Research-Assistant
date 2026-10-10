@@ -1,0 +1,159 @@
+{
+  "corpus": "corpus/quillbase_handbook.pdf",
+  "questions": [
+    {
+      "id": "port-client",
+      "question": "Which TCP port do clients connect to by default?",
+      "expected_any": [
+        "7421"
+      ]
+    },
+    {
+      "id": "port-admin",
+      "question": "What port does the administration interface listen on?",
+      "expected_any": [
+        "7422"
+      ]
+    },
+    {
+      "id": "tls",
+      "question": "Which TLS version is required for connections from other hosts?",
+      "expected_any": [
+        "TLS 1.3"
+      ]
+    },
+    {
+      "id": "wal-segment",
+      "question": "How large are the write-ahead log segments?",
+      "expected_any": [
+        "64 MiB"
+      ]
+    },
+    {
+      "id": "flush",
+      "question": "How often is the log flushed to disk by default?",
+      "expected_any": [
+        "5 ms"
+      ]
+    },
+    {
+      "id": "repl-factor",
+      "question": "How many copies of each key are stored by default?",
+      "expected_any": [
+        "replication factor of 3"
+      ]
+    },
+    {
+      "id": "quorum",
+      "question": "How many replicas must confirm a write before it is acknowledged?",
+      "expected_any": [
+        "2 of 3"
+      ]
+    },
+    {
+      "id": "snap-time",
+      "question": "At what time do the nightly snapshots run?",
+      "expected_any": [
+        "02:30 UTC"
+      ]
+    },
+    {
+      "id": "snap-keep",
+      "question": "How long are snapshots kept?",
+      "expected_any": [
+        "14 days"
+      ]
+    },
+    {
+      "id": "restore-cmd",
+      "question": "Which command restores a snapshot onto a node?",
+      "expected_any": [
+        "qbctl restore"
+      ]
+    },
+    {
+      "id": "cache",
+      "question": "What share of system memory does the block cache use by default?",
+      "expected_any": [
+        "25%"
+      ]
+    },
+    {
+      "id": "token-ttl",
+      "question": "How long do API tokens remain valid?",
+      "expected_any": [
+        "12 hours"
+      ]
+    },
+    {
+      "id": "audit-keep",
+      "question": "For how long is the audit log retained?",
+      "expected_any": [
+        "90 days"
+      ]
+    },
+    {
+      "id": "upgrade",
+      "question": "How should a cluster be upgraded?",
+      "expected_any": [
+        "one node at a time"
+      ]
+    },
+    {
+      "id": "upgrade-wait",
+      "question": "How long should operators wait between upgrading nodes?",
+      "expected_any": [
+        "5 minutes"
+      ]
+    },
+    {
+      "id": "metric",
+      "question": "Which metric tracks the 99th percentile commit latency?",
+      "expected_any": [
+        "qb_commit_latency_p99"
+      ]
+    },
+    {
+      "id": "alert",
+      "question": "At what commit latency does the default alert fire?",
+      "expected_any": [
+        "25 ms"
+      ]
+    },
+    {
+      "id": "err-quorum",
+      "question": "What does error code QB-4091 mean?",
+      "expected_any": [
+        "quorum was lost"
+      ]
+    },
+    {
+      "id": "err-disk",
+      "question": "What does error code QB-5003 mean?",
+      "expected_any": [
+        "disk is full"
+      ]
+    },
+    {
+      "id": "value-size",
+      "question": "What is the maximum size of a value?",
+      "expected_any": [
+        "8 MiB"
+      ]
+    },
+    {
+      "id": "batch",
+      "question": "How many keys can a single batch contain at most?",
+      "expected_any": [
+        "500 keys"
+      ]
+    },
+    {
+      "id": "sev1",
+      "question": "How quickly does support respond to a Severity 1 incident?",
+      "expected_any": [
+        "30 minutes"
+      ]
+    }
+  ]
+}

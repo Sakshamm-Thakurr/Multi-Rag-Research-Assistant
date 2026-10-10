@@ -7,3 +7,7 @@ faiss_index.bin
 chunks.pkl
 pdf_hash.txt
 *.pdf
+data/*
+data/
+!evaluation/corpus/*.pdf
+evaluation/last_report.json

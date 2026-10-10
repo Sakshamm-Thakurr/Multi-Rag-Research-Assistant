@@ -1,0 +1,7 @@
+{
+  "k": 3,
+  "measured_hit_at_k": 0.8636,
+  "measured_mrr": 0.8409,
+  "min_hit_at_k": 0.8136,
+  "min_mrr": 0.7909
+}
