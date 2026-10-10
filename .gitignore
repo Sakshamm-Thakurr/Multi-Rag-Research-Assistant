@@ -11,3 +11,4 @@ data/*
 data/
 !evaluation/corpus/*.pdf
 evaluation/last_report.json
+evaluation/report_*.json

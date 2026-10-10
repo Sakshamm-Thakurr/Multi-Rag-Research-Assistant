@@ -1,7 +1,9 @@
 {
   "k": 3,
+  "n": 14,
+  "margin": 0.0714,
   "measured_hit_at_k": 0.8571,
   "measured_mrr": 0.7857,
-  "min_hit_at_k": 0.8071,
-  "min_mrr": 0.7357
+  "min_hit_at_k": 0.7857,
+  "min_mrr": 0.7142
 }

@@ -13,6 +13,7 @@ from __future__ import annotations
 
 import argparse
 import json
+import math
 import re
 import sys
 from pathlib import Path
@@ -66,12 +67,22 @@ def check_against_baseline(metrics: dict, baseline: dict) -> list[str]:
 
 
 def make_baseline(metrics: dict) -> dict:
+    """Floors sit one margin below today's scores. The margin is at least ONE question's worth (1/n):
+    a gate that fails when a single question flips is flaky, and a flaky gate gets ignored."""
+    n = metrics["n"]
+    margin = max(MARGIN, 1.0 / n)
+
+    def floor4(x: float) -> float:  # round DOWN, so exactly one flipped question still passes
+        return math.floor(max(0.0, x) * 10000) / 10000
+
     return {
         "k": metrics["k"],
+        "n": n,
+        "margin": round(margin, 4),
         "measured_hit_at_k": round(metrics["hit_at_k"], 4),
         "measured_mrr": round(metrics["mrr"], 4),
-        "min_hit_at_k": round(max(0.0, metrics["hit_at_k"] - MARGIN), 4),
-        "min_mrr": round(max(0.0, metrics["mrr"] - MARGIN), 4),
+        "min_hit_at_k": floor4(metrics["hit_at_k"] - margin),
+        "min_mrr": floor4(metrics["mrr"] - margin),
     }
 
 

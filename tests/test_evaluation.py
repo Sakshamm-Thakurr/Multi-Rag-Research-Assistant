@@ -66,11 +66,20 @@ def test_ranks_and_metrics():
 
 
 def test_baseline_floor_and_comparison():
-    base = ev.make_baseline({"k": 3, "hit_at_k": 0.95, "mrr": 0.90})
-    assert base["min_hit_at_k"] == 0.90 and base["min_mrr"] == 0.85
+    base = ev.make_baseline({"k": 3, "n": 22, "hit_at_k": 0.95, "mrr": 0.90})
+    assert base["min_hit_at_k"] == pytest.approx(0.90, abs=1e-3) and base["min_mrr"] == pytest.approx(0.85, abs=1e-3)
     assert ev.check_against_baseline({"k": 3, "hit_at_k": 0.91, "mrr": 0.86}, base) == []
     assert len(ev.check_against_baseline({"k": 3, "hit_at_k": 0.80, "mrr": 0.86}, base)) == 1
     assert len(ev.check_against_baseline({"k": 5, "hit_at_k": 1.0, "mrr": 1.0}, base)) == 1  # k mismatch
+
+
+def test_the_floor_always_tolerates_exactly_one_flipped_question():
+    for n in (14, 22, 36):
+        base = ev.make_baseline({"k": 3, "n": n, "hit_at_k": 1.0, "mrr": 1.0})
+        one_miss = {"k": 3, "hit_at_k": (n - 1) / n, "mrr": (n - 1) / n}
+        two_miss = {"k": 3, "hit_at_k": (n - 2) / n, "mrr": (n - 2) / n}
+        assert ev.check_against_baseline(one_miss, base) == [], n
+        assert ev.check_against_baseline(two_miss, base) != [], n
 
 
 # ---------- the gate end to end, with a fake embedder and a stand-in chunker ----------
