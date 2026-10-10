@@ -1,0 +1,21 @@
+# secrets and local state must never reach the build context, let alone the image
+.env
+.env.*
+.git
+.gitignore
+.gitattributes
+venv
+.venv
+__pycache__
+*.pyc
+.pytest_cache
+data
+*.pkl
+*.bin
+*.faiss
+pdf_hash.txt
+sample_docs
+tests
+evaluation
+results*
+*.md
