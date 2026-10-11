@@ -18,7 +18,7 @@ concurrency:
 jobs:
   tests:
     name: Unit tests (no network, no secrets)
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5
@@ -34,7 +34,7 @@ jobs:
 
   docker:
     name: Docker image builds and behaves
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
     needs: tests
     steps:
       - uses: actions/checkout@v4
@@ -61,7 +61,7 @@ jobs:
 
   retrieval-gate:
     name: Retrieval quality gate (real embeddings)
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
     needs: tests
     # secrets are never given to pull requests from forks
     if: github.event_name != 'pull_request' || github.event.pull_request.head.repo.full_name == github.repository
