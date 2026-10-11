@@ -17,7 +17,7 @@ question -> Retriever agent : dense (FAISS) + keyword (BM25), merged with recipr
          -> Synthesiser agent: answers using only that context; flags low-confidence retrievals
 ```
 
-- **Embeddings:** Google Gemini (`gemini-embedding-001`). **Generation:** Groq-hosted `openai/gpt-oss-120b`.
+- **Embeddings:** Google Gemini (`gemini-embedding-001`) 3072-dimensional vectors). **Generation:** Groq-hosted `openai/gpt-oss-120b`.
   Both names are set in code (`core/embeddings.py`, `agents/summariser.py`, `agents/synthesiser.py`);
   providers retire models, which happened once during development.
 - **Two front ends, one core:** `app.py` (Streamlit, original single-document flow) and `api/main.py` (FastAPI,
@@ -27,7 +27,7 @@ question -> Retriever agent : dense (FAISS) + keyword (BM25), merged with recipr
 
 | Part | Choice |
 |---|---|
-| Embeddings | Google Gemini `gemini-embedding-001` |
+| Embeddings | Google Gemini `gemini-embedding-001` | (3072 dimensions)
 | Vector store | FAISS (local, persisted to disk, one folder per document) |
 | Keyword search | BM25 (plain Python, `core/hybrid.py`) merged with vector search by reciprocal rank fusion |
 | LLM | `openai/gpt-oss-120b` via the Groq API (the original `llama-3.3-70b-versatile` was retired by the provider) |
